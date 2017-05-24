@@ -1,0 +1,55 @@
+body {
+	background-image: url("../images/CaliforniaMap.png");
+	height:100%;
+	width:100%;
+
+}
+
+#main{
+	border:10px;
+	border-color:black;
+	border-width:5px;
+	background-color:blue;
+	margin:15% 10% 0%;
+	text-align: center;
+	font-size: xx-large;
+	color:white;
+	padding: 1%;
+}
+
+#questions{
+	border:10px;
+	border-color:black;
+	border-width:5px;
+	background-color:gold;
+	text-align: center;
+	font-size:xx-large;
+	color:white;
+	margin:0% 1% 0%;
+	padding: 1%;
+
+
+}
+
+#title {
+	border:10px;
+	border-color:black;
+	border-width:5px;
+	background-color:blue;
+	margin:1%;
+	text-align: center;
+	font-size: xx-large;
+	color:white;
+	padding: 1%;
+
+}
+
+#start {
+	background-color:gold;
+	border:none;
+	color:blue;
+	text-align:center;
+	font-size:120px;
+	padding:10px;
+
+}
