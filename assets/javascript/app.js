@@ -5,17 +5,18 @@ $('#start').on('click', presentAnswers);
 $('#start').on('click', presentQuestions);
 $('#start').on('click', startTimer);
 $('#start').on('click', removeButton);
+$('#submit').on('click', showAnswers);
 
 
 
 // Show answers function - append answers to a divs
 function presentAnswers(){
 	for (var s = 0; s < californiaAnswers.stateBird.length; s++){
-		$('#a1').append('<input type="radio" class="stateAnswers" name="group1" value="californiaAnswers.stateBird[s]" id=' + s + '>' + californiaAnswers.stateBird[s]);
-		$('#a2').append('<input type="radio" class="stateAnswers" name="group2" value="californiaAnswers.stateAmphibian[s]" id=' + s + '>' + californiaAnswers.stateAmphibian[s]);
-		$('#a3').append('<input type="radio" class="stateAnswers" name="group3" value="californiaAnswers.stateAnimal[s]" id=' + s + '>' + californiaAnswers.stateAnimal[s]);
-		$('#a4').append('<input type="radio" class="stateAnswers" name="group4" value="californiaAnswers.stateFruit[s]" id=' + s + '>' + californiaAnswers.stateFruit[s]);
-		$('#a5').append('<input type="radio" class="stateAnswers" name="group5" value="californiaAnswers.stateVegetable[s]" id=' + s + '>' + californiaAnswers.stateVegetable[s]);
+		$('#a1').append(`<input type="radio" class="stateAnswers1" name="group1" value=${californiaAnswers.stateBird[s]} id=${s}> ${californiaAnswers.stateBird[s]}`);
+		$('#a2').append(`<input type="radio" class="stateAnswers2" name="group2" value=${californiaAnswers.stateAmphibian[s]} id=${s}> ${californiaAnswers.stateAmphibian[s]}`);
+		$('#a3').append(`<input type="radio" class="stateAnswers3" name="group3" value=${californiaAnswers.stateAnimal[s]} id=${s}> ${californiaAnswers.stateAnimal[s]}`);
+		$('#a4').append(`<input type="radio" class="stateAnswers4" name="group4" value=${californiaAnswers.stateFruit[s]} id=${s}> ${californiaAnswers.stateFruit[s]}`);
+		$('#a5').append(`<input type="radio" class="stateAnswers5" name="group5" value=${californiaAnswers.stateVegetable[s]} id=${s}> ${californiaAnswers.stateVegetable[s]}`);
 	}
 	
 }
@@ -45,15 +46,19 @@ function decrementTimer(){
 	}
 }
 
-// Removes the button element and adds the submit button
+// Removes the button element and calls function to add the submit button
 function removeButton(){
 	$('#start').remove();
-	$('#submit').append('<div><button id="submitButton">Submit</button></div>');
+	addSubmitButton();
 } 
 
-//submitButton click calls the showAnswers function
+// Adds the submit button
 
- //$('#submitButton').on('click', showAnswers);
+
+function addSubmitButton() {
+	$('#submit').append('<div><button id="submitButton">Submit</button></div>');
+
+}
 
 
 // Clears out other stuff and inserts answers
@@ -62,7 +67,8 @@ function showAnswers(){
 		$('#time').remove();
 		$('#submitButton').remove();
 		$('#formQuestions').remove();
-		$('#questions').html('<div>results</div>');
+		$('#questions').html('<div id="results">results</div>');
+
 
 	}
 
@@ -75,19 +81,11 @@ var californiaQuestions = ['What is the state bird of California?',
 							'What is the state vegetable?'];
 
 var californiaAnswers = {
-	stateBird: ['quail', 'robin', 'blue hen','mockingbird','cardinal'],
-	stateAmphibian: ['red-legged frog', 'salamander','newt','green tree frog','spadefoot toad'],
-	stateAnimal: ['bighorn sheep', 'American buffalo', 'grizzly bear', 'black bear', 'elk'],
-	stateFruit: ['orange', 'avacado', 'lemon', 'grapefruit', 'honey crisp apple'],
-	stateVegetable: ['sweet onion', 'sugar beet', 'artichoke', 'sweet potato', 'chile'],
+	stateBird: ["quail", "robin", "hen","mockingbird","cardinal"],
+	stateAmphibian: ["frog", "salamander","newt","caecillian","toad"],
+	stateAnimal: ["sheep", "buffalo", "bear", "wolf", "elk"],
+	stateFruit: ["orange", "avacado", "lemon", "grapefruit", "apple"],
+	stateVegetable: ["onion", "beet", "artichoke", "potato", "chile"],
 
 };
 
-$('#a1').on('click', function() {
-	console.log($('#0'));
-	console.log($('#1'));
-	console.log($('#2'));
-	console.log($('#3'));
-	console.log($('#4'));
-
-})
