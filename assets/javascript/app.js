@@ -113,7 +113,7 @@ function showAnswers(){
 		$('#formQuestions').remove();
 		$('#questions').html('<div id="results">Results</div>');
 		$('#questions').html("<div>" + 'Right Answers: ' + rightAnswers + "</div>");
-		$('#questions').append("<div>" + 'Wrong Answers or Empty Answers: ' + wrongAnswers + "</div>");
+		$('#questions').append("<div>" + 'Wrong or Empty Answers: ' + wrongAnswers + "</div>");
 
 	}
 
