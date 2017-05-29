@@ -112,8 +112,8 @@ function showAnswers(){
 		$('#submitButton').remove();
 		$('#formQuestions').remove();
 		$('#questions').html('<div id="results">Results</div>');
-		$('#questions').append('Right Answers: ' + rightAnswers);
-		$('#questions').append('Wrong Answers: ' + wrongAnswers);
+		$('#questions').html("<div>" + 'Right Answers: ' + rightAnswers + "</div>");
+		$('#questions').append("<div>" + 'Wrong Answers: ' + wrongAnswers + "</div>");
 
 
 
