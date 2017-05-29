@@ -12,11 +12,11 @@ $('#submit').on('click', showAnswers);
 // Show answers function - append answers to a divs
 function presentAnswers(){
 	for (var s = 0; s < californiaAnswers.stateBird.length; s++){
-		$('#a1').append(`<input type="radio" class="stateAnswers1" name="group1" value=${californiaAnswers.stateBird[s]} id=${s}> ${californiaAnswers.stateBird[s]}`);
-		$('#a2').append(`<input type="radio" class="stateAnswers2" name="group2" value=${californiaAnswers.stateAmphibian[s]} id=${s}> ${californiaAnswers.stateAmphibian[s]}`);
-		$('#a3').append(`<input type="radio" class="stateAnswers3" name="group3" value=${californiaAnswers.stateAnimal[s]} id=${s}> ${californiaAnswers.stateAnimal[s]}`);
-		$('#a4').append(`<input type="radio" class="stateAnswers4" name="group4" value=${californiaAnswers.stateFruit[s]} id=${s}> ${californiaAnswers.stateFruit[s]}`);
-		$('#a5').append(`<input type="radio" class="stateAnswers5" name="group5" value=${californiaAnswers.stateVegetable[s]} id=${s}> ${californiaAnswers.stateVegetable[s]}`);
+		$('#a1').append(`<span id=${'a1'+s}><input type="radio" class="stateAnswers1" name="group1" value=${californiaAnswers.stateBird[s]} id=${s}> ${californiaAnswers.stateBird[s]}</span>`);
+		$('#a2').append(`<span id=${'a2'+s}><input type="radio" class="stateAnswers2" name="group2" value=${californiaAnswers.stateAmphibian[s]} id=${s}> ${californiaAnswers.stateAmphibian[s]}</span>`);
+		$('#a3').append(`<span id=${'a3'+s}><input type="radio" class="stateAnswers3" name="group3" value=${californiaAnswers.stateAnimal[s]} id=${s}> ${californiaAnswers.stateAnimal[s]}</span>`);
+		$('#a4').append(`<span id=${'a4'+s}><input type="radio" class="stateAnswers4" name="group4" value=${californiaAnswers.stateFruit[s]} id=${s}> ${californiaAnswers.stateFruit[s]}</span>`);
+		$('#a5').append(`<span id=${'a5'+s}><input type="radio" class="stateAnswers5" name="group5" value=${californiaAnswers.stateVegetable[s]} id=${s}> ${californiaAnswers.stateVegetable[s]}</span>`);
 	}
 	
 }
@@ -64,10 +64,58 @@ function addSubmitButton() {
 // Clears out other stuff and inserts answers
 
 function showAnswers(){	
+		var rightAnswers = 0;
+		var wrongAnswers = 0;
+		var userInput1 = $('#a1 input:checked').val();
+		var userInput2 = $('#a2 input:checked').val();
+		var userInput3 = $('#a3 input:checked').val();
+		var userInput4 = $('#a4 input:checked').val();
+		var userInput5 = $('#a5 input:checked').val();
+		if (userInput1 === 'quail'){
+			rightAnswers++;
+		}
+		else {
+			wrongAnswers++;
+		}
+		if (userInput2 === 'frog') {
+			rightAnswers++;
+		}
+		else {
+			wrongAnswers++;
+		}
+		if (userInput3 === 'bear') {
+			rightAnswers++;
+		}
+		else {
+			wrongAnswers++;
+		}
+		if (userInput4 === 'avacado') {
+			rightAnswers++;
+		}
+		else {
+			wrongAnswers++;
+		}
+		if (userInput5 === 'artichoke') {
+			rightAnswers++;
+		}
+		else {
+			wrongAnswers++;
+		}
+		console.log('Input1:' + userInput1);
+		console.log('Input2: ' + userInput2);
+		console.log('Input3: ' + userInput3);
+		console.log('Input4: ' + userInput4);
+		console.log('Input5: ' + userInput5);
+		console.log('Right Answers: ' + rightAnswers);
+		console.log('Wrong Answers: ' + wrongAnswers);
 		$('#time').remove();
 		$('#submitButton').remove();
 		$('#formQuestions').remove();
-		$('#questions').html('<div id="results">results</div>');
+		$('#questions').html('<div id="results">Results</div>');
+		$('#questions').append('Right Answers: ' + rightAnswers);
+		$('#questions').append('Wrong Answers: ' + wrongAnswers);
+
+
 
 
 	}
@@ -88,4 +136,3 @@ var californiaAnswers = {
 	stateVegetable: ["onion", "beet", "artichoke", "potato", "chile"],
 
 };
-
